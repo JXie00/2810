@@ -1,6 +1,9 @@
 import sqlite3
+import os.path
 
-con = sqlite3.connect("../assignment.db")
+BASE_DIR = os.path.dirname(os.path.abspath("assignment"))
+db_path = os.path.join(BASE_DIR, "assignment.db")
+con = sqlite3.connect(db_path)
 cur = con.cursor()
 
 def fetchInitData(type, increment=1):
