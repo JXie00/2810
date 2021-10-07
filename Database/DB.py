@@ -44,3 +44,6 @@ def LGARate():
 
 def getAccidentType():
     return cur.execute("select distinct ACCIDENT_TYPE from assignment").fetchall()
+
+def getColumnNames():
+    return cur.execute("PRAGMA table_info(assignment)").fetchall()
