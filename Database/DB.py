@@ -39,7 +39,8 @@ def alcoholImpact():
     return alcoholAccident[0][0] / totalAccident[0][0]
 
 
-
-
 def LGARate():
     return cur.execute("select count(LGA_NAME_ALL), LGA_NAME_ALL from assignment group by LGA_NAME_ALL").fetchall()
+
+def getAccidentType():
+    return cur.execute("select distinct ACCIDENT_TYPE from assignment").fetchall()
