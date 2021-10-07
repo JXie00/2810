@@ -3,7 +3,7 @@ from Database.DB import *
 from dateRegex import dateValidation
 
 class TestMyDb(unittest.TestCase):
-    def test_fetchInitialData_correct(self):
+    def test_fetchInitialData_valid(self):
         self.assertIsNotNone(fetchInitData("OBJECTID"))
 
     def test_hourlyAverageAccident_valid(self):
@@ -24,8 +24,11 @@ class TestMyDb(unittest.TestCase):
     def test_getDataByType_option(self):
         self.assertIsNotNone(getDataByType("2013/2/2","2014/2/3","Struck Pedestrian"))
 
-    def test_getDataByType_invalid(self):
+    def test_getDataByType_invalidDate(self):
         self.assertEqual(getDataByType("1999/2/2","2000/2/3"),[])
+
+    def test_getDataByType_invalidType(self):
+        self.assertEqual(getDataByType("2013/2/2","2014/2/3","awdwd"),[])
 
     def test_alcoholImpact(self):
         self.assertIsNotNone(alcoholImpact())
