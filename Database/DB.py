@@ -29,7 +29,7 @@ def getDataByType(startDate, endDate, type="Collision"):
     startDate = startDate.replace("/", "")
     endDate = endDate.replace("/", "")
     return cur.execute(
-        "select ACCIDENT_TYPE from assignment where ACCIDENT_DATE between '{}' and '{}' and ACCIDENT_TYPE like '%{}%' order by ACCIDENT_DATE asc".format(
+        "select * from assignment where ACCIDENT_DATE between '{}' and '{}' and ACCIDENT_TYPE like '%{}%' order by ACCIDENT_DATE asc".format(
             startDate, endDate, type)).fetchall()
 
 
